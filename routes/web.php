@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('todo');
-});
+use Illuminate\Support\Facades\Route;
+
+Route::get('/todos',[
+    'uses'=>'Todos@index'
+]);
