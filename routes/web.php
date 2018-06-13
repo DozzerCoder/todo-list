@@ -13,6 +13,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/todos',[
+Route::get('/',[
     'uses'=>'Todos@index'
+]);
+Route::post('/create/todo',[
+    'uses' => 'Todos@store'
 ]);
