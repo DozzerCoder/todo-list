@@ -19,3 +19,19 @@ Route::get('/',[
 Route::post('/create/todo',[
     'uses' => 'Todos@store'
 ]);
+Route::get('/todo/delete/{id}',[
+   'uses' => 'Todos@delete',
+   'as' => 'todo.delete'
+]);
+Route::get('/todo/update/{id}',[
+    'uses' => 'Todos@update',
+    'as' =>'todo.update'
+]);
+Route::post('/todo/save/{id}',[
+    'uses'=>'Todos@save',
+    'as'=>'todo.save'
+]);
+Route::get('/todos/completed/{id}',[
+    'uses'=>'Todos@completed',
+    'as'=>'todos.completed'
+]);

@@ -47,14 +47,19 @@
             }
 
             .title {
-                font-size: 20px;
+                font-size: 24px;
             }
             .m-b-md {
-                margin-bottom: 30px;
+                margin-bottom: 40px;
             }
         </style>
     </head>
     <body>
+        @if(Session::has('success'))
+            <div class="alert alert-success" role = "alert">
+                {{Session::get('success')}}
+            </div>
+        @endif
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">

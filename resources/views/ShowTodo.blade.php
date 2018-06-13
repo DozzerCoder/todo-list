@@ -6,14 +6,20 @@
         <div class="col-lg-6 col-lg-offset-3">
             <form action="/create/todo" method = "post">
                 {{csrf_field()}}
-                <input type="text" class="form-control input-lg" name = "todos" placeholder="Enter your todo here">
-                <button class="btn btn-primary" type = "submit">Create todo</button>
+                <input type="text" class="form-control input-lg" name = "todo" placeholder="Enter your todo here">
             </form>
         </div>
     </div>
+    <hr>
     <?php foreach ($todos as $todo):?>
-    <?php echo $todo->todo;?>
-    <br>
+    <?php echo $todo->todo;?><a href="{{ route('todo.delete',['id'=>$todo->id]) }}}" class="btn btn-danger btn-xs">x</a>
+    <a href="{{ route('todo.update',['id'=>$todo->id]) }}}" class="btn btn-secondary btn-xs">update</a>
+    @if(!$todo->completed)
+        <a href="{{route('todos.completed',['id'=>$todo->id])}}" class = "btn btn-xs btn-success">Mark as Completed</a>
+    @else
+
+    @endif
+    <hr>
     <?php endforeach;?>
 
 @stop 
